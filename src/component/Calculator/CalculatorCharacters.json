@@ -1,0 +1,87 @@
+[
+    {
+        "name": "zero",
+        "value": "0",
+        "type": "number"
+    },
+    {
+        "name": "one",
+        "value": "1",
+        "type": "number"
+    },
+    {
+        "name": "two",
+        "value": "2",
+        "type": "number"
+    },
+    {
+        "name": "three",
+        "value": "3",
+        "type": "number"
+    },
+    {
+        "name": "four",
+        "value": "4",
+        "type": "number"
+    },
+    {
+        "name": "five",
+        "value": "5",
+        "type": "number"
+    },
+    {
+        "name": "six",
+        "value": "6",
+        "type": "number"
+    },
+    {
+        "name": "seven",
+        "value": "7",
+        "type": "number"
+    },
+    {
+        "name": "eight",
+        "value": "8",
+        "type": "number"
+    },
+    {
+        "name": "nine",
+        "value": "9",
+        "type": "number"
+    },
+    {
+        "name": "add",
+        "value": "+",
+        "type": "operator"
+    },
+    {
+        "name": "subtract",
+        "value": "-",
+        "type": "operator"
+    },
+    {
+        "name": "multiply",
+        "value": "*",
+        "type": "operator"
+    },
+    {
+        "name": "divide",
+        "value": "/",
+        "type": "operator"
+    },
+    {
+        "name": "match",
+        "value": "=",
+        "type": "match"
+    },
+    {
+        "name": "point",
+        "value": ".",
+        "type": "point"
+    },
+    {
+        "name": "clear",
+        "value": "AC",
+        "type": "clear"
+    }
+]
