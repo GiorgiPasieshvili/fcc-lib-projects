@@ -1,7 +1,7 @@
 import { PureComponent } from 'react';
 import Calculator from './Calculator.component';
 
-/** @namespace Component/App/Container */
+/** @namespace Component/Calculator/Container */
 export class CalculatorContainer extends PureComponent {
 
     state = {

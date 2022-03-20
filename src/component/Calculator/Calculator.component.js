@@ -2,7 +2,7 @@ import { PureComponent } from 'react';
 import CalculatorCharacters from './CalculatorCharacters';
 import './Calculator.style.scss';
 
-/** @namespace Component/App/Component */
+/** @namespace Component/Calculator/Component */
 export class Calculator extends PureComponent {
 
     renderCharacters() {
