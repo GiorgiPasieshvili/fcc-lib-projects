@@ -1,0 +1,47 @@
+[
+    {
+        "name": "q",
+        "audio_name": "Chord 1",
+        "audio": "https://s3.amazonaws.com/freecodecamp/drums/Chord_1.mp3"
+    },
+    {
+        "name": "w",
+        "audio_name": "Chord 2",
+        "audio": "https://s3.amazonaws.com/freecodecamp/drums/Chord_2.mp3"
+    },
+    {
+        "name": "e",
+        "audio_name": "Chord 3",
+        "audio": "https://s3.amazonaws.com/freecodecamp/drums/Chord_3.mp3"
+    },
+    {
+        "name": "a",
+        "audio_name": "Shaker",
+        "audio": "https://s3.amazonaws.com/freecodecamp/drums/Give_us_a_light.mp3"
+    },
+    {
+        "name": "s",
+        "audio_name": "Open HH",
+        "audio": "https://s3.amazonaws.com/freecodecamp/drums/Dry_Ohh.mp3"
+    },
+    {
+        "name": "d",
+        "audio_name": "Closed HH",
+        "audio": "https://s3.amazonaws.com/freecodecamp/drums/Bld_H1.mp3"
+    },
+    {
+        "name": "z",
+        "audio_name": "Punchy Kick",
+        "audio": "https://s3.amazonaws.com/freecodecamp/drums/punchy_kick_1.mp3"
+    },
+    {
+        "name": "x",
+        "audio_name": "Side stick",
+        "audio": "https://s3.amazonaws.com/freecodecamp/drums/side_stick_1.mp3"
+    },
+    {
+        "name": "c",
+        "audio_name": "Snare",
+        "audio": "https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3"
+    }
+]

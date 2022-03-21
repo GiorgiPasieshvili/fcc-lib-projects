@@ -1,5 +1,5 @@
 import { PureComponent } from 'react';
-import CalculatorCharacters from './CalculatorCharacters';
+import CalculatorButtonsJSON from './CalculatorButtons';
 import './Calculator.style.scss';
 
 /** @namespace Component/Calculator/Component */
@@ -8,13 +8,13 @@ export class Calculator extends PureComponent {
     renderCharacters() {
         const { onButtonClick } = this.props;
 
-        const calculatorButtons = CalculatorCharacters.map(character => (
+        const calculatorButtons = CalculatorButtonsJSON.map(button => (
                 <button
-                    id={ character.name }
-                    key={ character.name }
-                    onClick={ () => onButtonClick(character) }
+                    id={ button.name }
+                    key={ button.name }
+                    onClick={ () => onButtonClick(button) }
                 >
-                    { character.value }
+                    { button.value }
                 </button>
             )
         );
