@@ -13,7 +13,7 @@ class AppRouter extends PureComponent {
         return (
             <>
                 {/* <Calculator /> */}
-                <DrumMachine />
+                {/* <DrumMachine /> */}
                 {/* <MarkdownPreviewer /> */}
                 {/* <PomodoroClock /> */}
                 {/* <QuoteMachine /> */}
