@@ -1,9 +1,15 @@
 import { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+
 import DrumMachineButtonsJSON from './DrumMachineButtons';
 import './DrumMachine.style.scss';
 
 /** @namespace Component/DrumMachine/Component */
 export class DrumMachine extends PureComponent {
+    static propTypes = {
+        onButtonClick: PropTypes.func.isRequired,
+        output: PropTypes.string.isRequired
+      }
 
     renderButtons() {
         const { onButtonClick } = this.props;

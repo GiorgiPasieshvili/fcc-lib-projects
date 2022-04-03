@@ -12,7 +12,7 @@ export class PomodoroClockContainer extends PureComponent {
 
     containerProps() {
 
-    };
+    }
 
     render() {
         return (

@@ -1,9 +1,16 @@
 import { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+
 import CalculatorButtonsJSON from './CalculatorButtons';
 import './Calculator.style.scss';
 
 /** @namespace Component/Calculator/Component */
 export class Calculator extends PureComponent {
+    static propTypes = {
+        onButtonClick: PropTypes.func.isRequired,
+        currentOperation: PropTypes.string.isRequired,
+        wholeOperation: PropTypes.string.isRequired
+      }
 
     renderCharacters() {
         const { onButtonClick } = this.props;

@@ -1,4 +1,5 @@
 import { PureComponent } from 'react';
+
 import Calculator from './Calculator.component';
 
 /** @namespace Component/Calculator/Container */
@@ -21,7 +22,7 @@ export class CalculatorContainer extends PureComponent {
             currentOperation,
             wholeOperation
         };
-    };
+    }
 
     onNumberButtonClick(value) {     
       const { currentOperation, wholeOperation, operators } = this.state;

@@ -1,4 +1,5 @@
 import { PureComponent } from 'react';
+
 import DrumMachineButtonsJSON from './DrumMachineButtons';
 import DrumMachine from './DrumMachine.component';
 
@@ -19,7 +20,7 @@ export class DrumMachineContainer extends PureComponent {
         return {
             output
         };
-    };
+    }
 
     componentDidMount() {
         document.addEventListener("keydown", this._handleKeyDown);

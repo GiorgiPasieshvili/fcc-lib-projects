@@ -6,7 +6,12 @@ import './PomodoroClock.style.scss';
 export class PomodoroClock extends PureComponent {
 
     render() {
-        return <>PomodoroClock</>
+        return (
+            <div className='MarkdownPreviewer'>
+                { this.renderEditor() }
+                { this.renderOutput() }
+            </div>
+        )
     }
 }
 
