@@ -12,7 +12,7 @@ export class QuoteMachineContainer extends PureComponent {
 
     containerProps() {
 
-    };
+    }
 
     render() {
         return (
