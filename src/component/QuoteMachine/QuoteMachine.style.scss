@@ -1,0 +1,45 @@
+#quote-box {
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 5px;
+}
+#text{
+    font-size: 1.5rem;
+}
+#author{
+    align-self: flex-end;
+
+}
+#buttons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+#tweet-quote{
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 8px 18px;
+}
+#new-quote{
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+    padding: 8px 18px;
+
+}
+
+@media(max-width: 360px){
+    #buttons {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    #tweet-quote{
+        margin-bottom: 10px;
+    }
+}

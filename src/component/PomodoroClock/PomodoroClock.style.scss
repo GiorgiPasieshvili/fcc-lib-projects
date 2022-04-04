@@ -1,0 +1,17 @@
+.PomodoroClock {
+    width: 450px;
+    text-align: center;
+    border: 1px solid #000;
+    padding: 16px;
+    background-color: #759b9b;
+
+    &-LengthControls {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &-Controls {
+        display: flex;
+        justify-content: center;
+    }
+}
