@@ -14,13 +14,15 @@ export class PomodoroClock extends PureComponent {
         onReset: PropTypes.func.isRequired,
         breakLength: PropTypes.number,
         sessionLength: PropTypes.number,
-        sessionTime: PropTypes.string
-      }
+        sessionTime: PropTypes.string,
+        sessionLabel: PropTypes.string
+    }
 
     static defaultProps = {
         breakLength: 5,
         sessionLength: 25,
-        sessionTime: '25:00'
+        sessionTime: '25:00',
+        sessionLabel: 'Session'
     }
 
     // Render Break And Session Controls
@@ -84,7 +86,7 @@ export class PomodoroClock extends PureComponent {
     }
 
     render() {
-        const { sessionTime } = this.props;
+        const { sessionTime, sessionLabel } = this.props;
 
         return (
             <div className='PomodoroClock'>
@@ -94,9 +96,8 @@ export class PomodoroClock extends PureComponent {
                 {/* Break And Session Controls */}
                 { this.renderControls() }
 
-                <h3>Session</h3>
+                <h3>{ sessionLabel }</h3>
                 <span>{ sessionTime }</span>
-                <audio src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav" />
 
                 { this.renderTimerControls() }
             </div>
