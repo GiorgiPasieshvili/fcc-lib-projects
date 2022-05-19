@@ -15,10 +15,17 @@ export class QuoteMachine extends PureComponent {
 
         return (
 			<div className='QuoteMachine-Buttons'>
-				<a href='http://twitter.com/intent/tweet' target='blank' >
+				<a
+                  id="tweet"
+                  href='http://twitter.com/intent/tweet' 
+                  target='blank' 
+                >
                     Tweet
                 </a>
-				<button onClick={ () => onNewQuoteClick() } >
+				<button
+                  id="new-quote"
+                  onClick={ () => onNewQuoteClick() } 
+                >
                     New Quote
                 </button>
 			</div>

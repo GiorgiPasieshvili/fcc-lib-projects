@@ -41,6 +41,12 @@ export class QuoteMachineContainer extends PureComponent {
         this.fetchQuotes();
     }
 
+    componentWillUnmount() {
+        const body = document.getElementsByTagName('body')[0];
+
+        body.removeAttribute("style");
+    }
+
     onNewQuoteClick() {
         const { quotes, colors } = this.state;
 
@@ -63,8 +69,8 @@ export class QuoteMachineContainer extends PureComponent {
 
     setColors(color) {
         const body = document.getElementsByTagName('body')[0];
-        const tweetButton = document.getElementsByTagName('a')[0];
-        const quoteButton = document.getElementsByTagName('button')[0];
+        const tweetButton = document.getElementById('tweet');
+        const quoteButton = document.getElementById('new-quote');
 
         body.style.color = color;
         body.style.backgroundColor = color;
