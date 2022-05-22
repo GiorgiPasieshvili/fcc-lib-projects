@@ -39,14 +39,14 @@ export class Calculator extends PureComponent {
         return (
             <div className='Calculator-Output'>
                 {/* Render Whole Operation */}
-                <div className='Calculator-Output_Whole'>
+                <p className='Calculator-Output_Whole'>
                     { wholeOperation }
-                </div>
+                </p>
 
                 {/* Render Current Chosen Operator or Number */}
-                <div className='Calculator-Output_Current'>
+                <p className='Calculator-Output_Current'>
                     { currentOperation }
-                </div>
+                </p>
             </div>
         );
     }

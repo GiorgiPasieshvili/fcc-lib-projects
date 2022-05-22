@@ -1,6 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import './variables.scss';
+
 body {
-    background-color: #87b5b5;
+    font-family: $f-robo-mono, monospace;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: $light-color;
+    background: linear-gradient(315deg, $bluish-color 0%, $greenish-color 100%);
 }

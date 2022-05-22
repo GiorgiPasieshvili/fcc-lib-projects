@@ -1,34 +1,38 @@
 .Calculator {
-    width: 500px;
-    height: 600px;
-    padding: 10px;
+    width: 380px;
+    height: 525px;
+    border-radius: 4px;
+    padding: 19px;
     display: flex;
     flex-direction: column;
-    background-color: #000;
+    gap: 19px;
+    background: #222;
 
     &-Output {
-        flex-grow: 1;
+        height: 120px;
+
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-items: flex-end;
-        padding: 5px;
-        line-height: 1.2;
-        background-color: #000;
-        color: #fff;
+        gap: 4px;
+
+        padding: 15px;
+        background: #272727;
+        text-align: right;
+        overflow: hidden;
 
         &_Whole {
-            font-size: 1rem;
-            color: rgb(250, 166, 118);
+            font-size: 23px;
         }
 
-        // &_Current {
-
-        // }
+        &_Current {
+            font-size: 39px;
+        }
     }
 
     &-Buttons {
-        flex-grow: 2.5;
+        flex-grow: 1;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-template-areas:
@@ -37,17 +41,14 @@
         'four five six plus'
         'one two three match'
         'null null point match';
+        gap: 3px;
 
         button {
-            padding: 10px 25px;
-            border: 1px solid #000;
-            background-color: #555;
-            color: #fff;
+            font-size: 26px;
+            background: #4B4E6D;
 
             &:hover {
-                background-color: #555;
-                color: #000;
-                border: 1px solid #fff;
+                outline: 1px solid #fff;
                 transform: scale(1.05);
             }
         }
@@ -68,6 +69,9 @@
         #subtract {  grid-area: minus;  }
         #multiply {  grid-area: multiple;  }
         #divide {  grid-area: divide;  }
-        #match {  grid-area: match;  }
+        #match {  
+            background: #84DCC6;
+            grid-area: match;  
+        }
     }
 }
