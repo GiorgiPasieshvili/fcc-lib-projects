@@ -6,8 +6,8 @@ import Calculator from './Calculator.component';
 export class CalculatorContainer extends PureComponent {
 
     state = {
-        currentOperation: '0',
-        wholeOperation: '',
+        currentTask: '0',
+        wholeTask: '',
         operators: /([*/+-])/g
     };
 
@@ -16,18 +16,18 @@ export class CalculatorContainer extends PureComponent {
     };
 
     containerProps() {
-        const { currentOperation, wholeOperation } = this.state;
+        const { currentTask, wholeTask } = this.state;
 
         return {
-            currentOperation,
-            wholeOperation
+            currentTask,
+            wholeTask
         };
     }
 
     onNumberButtonClick(value) {     
-      const { currentOperation, wholeOperation, operators } = this.state;
-      let currentInstance = currentOperation;
-      let wholeInstance = wholeOperation;
+      const { currentTask, wholeTask, operators } = this.state;
+      let currentInstance = currentTask;
+      let wholeInstance = wholeTask;
 
       if(currentInstance.match(operators) || currentInstance === '0') {
         currentInstance = '';
@@ -39,15 +39,15 @@ export class CalculatorContainer extends PureComponent {
       }
 
       this.setState({
-        currentOperation: currentInstance + value,
-        wholeOperation: wholeInstance + value
+        currentTask: currentInstance + value,
+        wholeTask: wholeInstance + value
       });
     }
 
     onOperatorButtonClick(value) {
-      const { currentOperation, wholeOperation, operators } = this.state;
-      let currentInstance = currentOperation;
-      let wholeInstance = wholeOperation;
+      const { currentTask, wholeTask, operators } = this.state;
+      let currentInstance = currentTask;
+      let wholeInstance = wholeTask;
 
       if(currentInstance.match(operators)) {
         wholeInstance = wholeInstance.slice(0, wholeInstance.length - 1);
@@ -58,43 +58,43 @@ export class CalculatorContainer extends PureComponent {
       }
 
       this.setState({
-        currentOperation: value,
-        wholeOperation: wholeInstance + value
+        currentTask: value,
+        wholeTask: wholeInstance + value
       });
     }
 
     onClearButtonClick() {
       this.setState({
-        currentOperation: '0',
-        wholeOperation: ''
+        currentTask: '0',
+        wholeTask: ''
       })
     }
     
     onPointButtonClick() {
-      const { currentOperation, wholeOperation } = this.state;
-      let currentInstance = currentOperation;
-      let wholeInstance = wholeOperation;
+      const { currentTask, wholeTask } = this.state;
+      let currentInstance = currentTask;
+      let wholeInstance = wholeTask;
       
       if(currentInstance.indexOf(".") < 0){
         this.setState({
-          currentOperation: currentInstance + '.',
-          wholeOperation: wholeInstance + '.'
+          currentTask: currentInstance + '.',
+          wholeTask: wholeInstance + '.'
         });
       }
     }
 
     onMatchButtonClick() {
-      const { currentOperation, wholeOperation, operators } = this.state;
-      let currentInstance = currentOperation;
-      let wholeInstance = wholeOperation;
+      const { currentTask, wholeTask, operators } = this.state;
+      let currentInstance = currentTask;
+      let wholeInstance = wholeTask;
 
       if(currentInstance.match(operators)){
         wholeInstance = wholeInstance.slice(0, wholeInstance.length - 1);
       }
 
       this.setState({
-        currentOperation: JSON.stringify(eval(wholeInstance)),
-        wholeOperation: wholeInstance + '=' + eval(wholeInstance)
+        currentTask: JSON.stringify(eval(wholeInstance)),
+        wholeTask: wholeInstance + '=' + eval(wholeInstance)
       });
     }
 

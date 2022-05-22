@@ -16,10 +16,8 @@ export class PomodoroClockContainer extends PureComponent {
     };
 
     containerFunctions = {
-        onBreakIncrement: this.onBreakIncrement.bind(this),
-        onBreakDecrement: this.onBreakDecrement.bind(this),
-        onSessionIncrement: this.onSessionIncrement.bind(this),
-        onSessionDecrement: this.onSessionDecrement.bind(this),
+        onBreakSelect: this.onBreakSelect.bind(this),
+        onSessionSelect: this.onSessionSelect.bind(this),
         onPlay: this.onPlay.bind(this),
         onReset: this.onReset.bind(this)
     };
@@ -32,82 +30,22 @@ export class PomodoroClockContainer extends PureComponent {
         };
     }
 
-    onBreakIncrement() {
-        const { breakLength } = this.state;
-
-        if (breakLength < 10) {
-            this.setState({ breakLength: breakLength + 1 });
-        }
-    }
-
-    onBreakDecrement() {
-        const { breakLength } = this.state;
-
-        if (breakLength > 1) {
-            this.setState({ breakLength: breakLength - 1 });
-        }
-    }
-
-    onSessionIncrement() {
-        const { sessionLength, timeInSeconds } = this.state;
-
-        if (sessionLength < 60) {
-            this.setState({
-                sessionLength: sessionLength + 1,
-                sessionTime: this.getFormattedTime(timeInSeconds + 60),
-                timeInSeconds: timeInSeconds + 60
-            });
-        }
-    }
-
-    onSessionDecrement() {
-        const { sessionLength, timeInSeconds } = this.state;
-
-        if (sessionLength > 1) {
-            this.setState({
-                sessionLength: sessionLength - 1,
-                sessionTime: this.getFormattedTime(timeInSeconds - 60),
-                timeInSeconds: timeInSeconds - 60
-            });
-        }
-
-    }
-
-    timerCountDown() {
-        const { timeInSeconds, isBreak, breakLength, sessionLength, audio } = this.state;
-
-        console.log('countdown', timeInSeconds)
-
+    onBreakSelect(e) {
+        const numberLength = Number(e.target.value);
         this.setState({
-            sessionTime: this.getFormattedTime(timeInSeconds - 1),
-            timeInSeconds: timeInSeconds - 1
+            BreakTime: this._getFormattedTime(numberLength * 60),
+            breakLength: numberLength,
+            timeInSeconds: numberLength * 60
         });
-
-        if (timeInSeconds < 1 && !isBreak) {
-            this.setState({
-                isBreak: true,
-                sessionLabel: 'Break',
-                timeInSeconds: breakLength * 60,
-                sessionTime: this.getFormattedTime(breakLength * 60),
-            });
-
-            audio.play();
-        } else if (timeInSeconds < 1 && isBreak) {
-            this.setState({
-                isBreak: false,
-                sessionLabel: 'Session',
-                timeInSeconds: sessionLength * 60,
-                sessionTime: this.getFormattedTime(sessionLength * 60),
-            });
-
-            audio.play();
-        }
     }
 
-    getFormattedTime(timeInSeconds) {
-        let formattedLeftMinutes = Math.floor(timeInSeconds / 60) < 10 ? '0' + Math.floor(timeInSeconds / 60) : Math.floor(timeInSeconds / 60);
-        let formattedLeftSeconds = timeInSeconds % 60 < 10 ? '0' + timeInSeconds % 60 : timeInSeconds % 60;
-        return `${formattedLeftMinutes}:${formattedLeftSeconds}`;
+    onSessionSelect(e) {
+        const numberLength = Number(e.target.value);
+        this.setState({
+            sessionTime: this._getFormattedTime(numberLength * 60),
+            sessionLength: numberLength,
+            timeInSeconds: numberLength * 60
+        });
     }
 
     onPlay() {
@@ -119,7 +57,7 @@ export class PomodoroClockContainer extends PureComponent {
             return;
         }
       
-        const newIntervalId = setInterval(() => this.timerCountDown(), 1000);
+        const newIntervalId = setInterval(() => this._timerCountDown(), 1000);
         this.setState({ intervalId: newIntervalId });
     }
 
@@ -138,6 +76,41 @@ export class PomodoroClockContainer extends PureComponent {
 
         audio.pause();
         audio.currentTime = 0;
+    }
+
+    _timerCountDown() {
+        const { timeInSeconds, isBreak, breakLength, sessionLength, audio } = this.state;
+
+        this.setState({
+            sessionTime: this._getFormattedTime(timeInSeconds - 1),
+            timeInSeconds: timeInSeconds - 1
+        });
+
+        if (timeInSeconds < 1 && !isBreak) {
+            this.setState({
+                isBreak: true,
+                sessionLabel: 'Break',
+                timeInSeconds: breakLength * 60,
+                sessionTime: this._getFormattedTime(breakLength * 60),
+            });
+
+            audio.play();
+        } else if (timeInSeconds < 1 && isBreak) {
+            this.setState({
+                isBreak: false,
+                sessionLabel: 'Session',
+                timeInSeconds: sessionLength * 60,
+                sessionTime: this._getFormattedTime(sessionLength * 60),
+            });
+
+            audio.play();
+        }
+    }
+
+    _getFormattedTime(timeInSeconds) {
+        let formattedLeftMinutes = Math.floor(timeInSeconds / 60) < 10 ? '0' + Math.floor(timeInSeconds / 60) : Math.floor(timeInSeconds / 60);
+        let formattedLeftSeconds = timeInSeconds % 60 < 10 ? '0' + timeInSeconds % 60 : timeInSeconds % 60;
+        return `${formattedLeftMinutes}:${formattedLeftSeconds}`;
     }
 
     render() {

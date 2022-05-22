@@ -8,11 +8,11 @@ import './Calculator.style.scss';
 export class Calculator extends PureComponent {
     static propTypes = {
         onButtonClick: PropTypes.func.isRequired,
-        currentOperation: PropTypes.string.isRequired,
-        wholeOperation: PropTypes.string.isRequired
+        currentTask: PropTypes.string.isRequired,
+        wholeTask: PropTypes.string.isRequired
       }
 
-    renderCharacters() {
+    renderButtons() {
         const { onButtonClick } = this.props;
 
         const calculatorButtons = CalculatorButtonsJSON.map(button => (
@@ -33,19 +33,19 @@ export class Calculator extends PureComponent {
         );
     }
 
-    renderOutput() {
-        const { currentOperation, wholeOperation } = this.props;
+    renderScreen() {
+        const { currentTask, wholeTask } = this.props;
 
         return (
-            <div className='Calculator-Output'>
-                {/* Render Whole Operation */}
-                <p className='Calculator-Output_Whole'>
-                    { wholeOperation }
+            <div className='Calculator-Screen'>
+                {/* Render Whole Task */}
+                <p className='Calculator-Screen_Whole'>
+                    { wholeTask }
                 </p>
 
                 {/* Render Current Chosen Operator or Number */}
-                <p className='Calculator-Output_Current'>
-                    { currentOperation }
+                <p className='Calculator-Screen_Current'>
+                    { currentTask }
                 </p>
             </div>
         );
@@ -54,8 +54,8 @@ export class Calculator extends PureComponent {
     render() {
         return (
             <div className='Calculator'>
-                { this.renderOutput() }
-                { this.renderCharacters() }
+                { this.renderScreen() }
+                { this.renderButtons() }
             </div>
         );
     }

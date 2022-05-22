@@ -6,18 +6,11 @@ export class QuoteMachineContainer extends PureComponent {
     
     state = {
         colors: [
-            '#16a085',
-            '#27ae60',
-            '#2c3e50',
-            '#f39c12',
-            '#e74c3c',
-            '#9b59b6',
-            '#FB6964',
-            '#342224',
-            '#472E32',
-            '#BDBB99',
-            '#77B1A9',
-            '#73A857'
+            '#8bf490',
+            '#f78ab7',
+            '#f9f4a4',
+            '#a1e4ea',
+            '#ffa3e4'
         ],
         quotes: [],
         randomQuote: {}
@@ -69,13 +62,13 @@ export class QuoteMachineContainer extends PureComponent {
 
     setColors(color) {
         const body = document.getElementsByTagName('body')[0];
-        const tweetButton = document.getElementById('tweet');
-        const quoteButton = document.getElementById('new-quote');
+        // const tweetButton = document.getElementById('tweet');
+        // const quoteButton = document.getElementById('new-quote');
 
-        body.style.color = color;
+        // body.style.color = color;
         body.style.backgroundColor = color;
-        tweetButton.style.color = color;
-        quoteButton.style.backgroundColor = color;
+        // tweetButton.style.color = color;
+        // quoteButton.style.backgroundColor = color;
     }
 
     getRandom(array) {
