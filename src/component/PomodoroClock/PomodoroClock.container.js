@@ -31,21 +31,31 @@ export class PomodoroClockContainer extends PureComponent {
     }
 
     onBreakSelect(e) {
+        const { isBreak } = this.state;
         const numberLength = Number(e.target.value);
-        this.setState({
-            BreakTime: this._getFormattedTime(numberLength * 60),
-            breakLength: numberLength,
-            timeInSeconds: numberLength * 60
-        });
+
+        if (isBreak) {
+            this.setState({
+                sessionTime: this._getFormattedTime(numberLength * 60),
+                timeInSeconds: numberLength * 60
+            });
+        }
+
+        this.setState({ breakLength: numberLength });
     }
 
     onSessionSelect(e) {
+        const { isBreak } = this.state;
         const numberLength = Number(e.target.value);
-        this.setState({
-            sessionTime: this._getFormattedTime(numberLength * 60),
-            sessionLength: numberLength,
-            timeInSeconds: numberLength * 60
-        });
+
+        if (!isBreak) {
+            this.setState({
+                sessionTime: this._getFormattedTime(numberLength * 60),
+                timeInSeconds: numberLength * 60
+            });
+        }
+
+        this.setState({ sessionLength: numberLength });
     }
 
     onPlay() {

@@ -1,10 +1,31 @@
 import { PureComponent } from 'react';
 import { Link } from "react-router-dom";
+import withRouter from '../../util/withRouter'
+import PropTypes from 'prop-types';
 
 import './Menu.style.scss';
 
 /** @namespace Component/Menu/Component */
 export class Menu extends PureComponent {
+    static propTypes = {
+        router: PropTypes.object.isRequired,
+    }
+
+    renderBack() {
+        const { router: { location: { pathname } } } = this.props;
+
+        if( pathname === '/' ) return null;
+
+        return (
+            <li>
+                <Link to="/">
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.16666 22.9167L18.75 4.16667V14.5833C43.6521 14.5833 46.525 34.7458 45.8333 45.8333C44.7875 40.2396 44.3021 31.25 18.75 31.25V41.6667L4.16666 22.9167Z" stroke="#F5F5F5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                </Link>
+            </li>
+        )
+    }
 
     render() {
         return (
@@ -57,10 +78,11 @@ export class Menu extends PureComponent {
                             </svg>
                         </Link>
                     </li>
+                    { this.renderBack() }
                 </ul>
             </nav>
         );
     }
 }
 
-export default Menu;
+export default withRouter(Menu);

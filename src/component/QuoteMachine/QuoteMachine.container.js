@@ -5,13 +5,6 @@ import QuoteMachine from './QuoteMachine.component';
 export class QuoteMachineContainer extends PureComponent {
     
     state = {
-        colors: [
-            '#8bf490',
-            '#f78ab7',
-            '#f9f4a4',
-            '#a1e4ea',
-            '#ffa3e4'
-        ],
         quotes: [],
         randomQuote: {}
     };
@@ -29,49 +22,25 @@ export class QuoteMachineContainer extends PureComponent {
     }
 
     componentDidMount() {
-        const { colors } = this.state;
-        this.setColors(this.getRandom(colors));
-        this.fetchQuotes();
-    }
-
-    componentWillUnmount() {
-        const body = document.getElementsByTagName('body')[0];
-
-        body.removeAttribute("style");
-    }
-
-    onNewQuoteClick() {
-        const { quotes, colors } = this.state;
-
-        this.setColors(this.getRandom(colors));
-        this.setState({ randomQuote: this.getRandom(quotes)});
-    }
-
-    fetchQuotes() {
         const quotesUrl = 'https://gist.githubusercontent.com/camperbot/5a022b72e96c4c9585c32bf6a75f62d9/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json';
         
         fetch(quotesUrl)
           .then((response) => response.json())
           .then(({ quotes }) => {
-            this.setState({ quotes: quotes, randomQuote: this.getRandom(quotes) })
+            this.setState({ quotes: quotes, randomQuote: this._getRandom(quotes) })
           })
           .catch((error) => {
             throw new Error(`HTTP error! Status: ${ error.status }`);
           });
     }
 
-    setColors(color) {
-        const body = document.getElementsByTagName('body')[0];
-        // const tweetButton = document.getElementById('tweet');
-        // const quoteButton = document.getElementById('new-quote');
+    onNewQuoteClick() {
+        const { quotes } = this.state;
 
-        // body.style.color = color;
-        body.style.backgroundColor = color;
-        // tweetButton.style.color = color;
-        // quoteButton.style.backgroundColor = color;
+        this.setState({ randomQuote: this._getRandom(quotes)});
     }
 
-    getRandom(array) {
+    _getRandom(array) {
         return array[Math.floor((Math.random()*array.length))];
     }
 

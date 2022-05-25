@@ -34,7 +34,7 @@ export class QuoteMachine extends PureComponent {
 
     renderOutputs() {
         const { randomQuote } = this.props;
-
+        
         return (
             <>
                 <span className='QuoteMachine-Quote'>
@@ -48,6 +48,10 @@ export class QuoteMachine extends PureComponent {
     }
 
     render() {
+        const { randomQuote } = this.props;
+        
+        if(Object.keys(randomQuote).length == 0) return null;
+
         return (
             <div className='QuoteMachine'>
                 { this.renderOutputs() }

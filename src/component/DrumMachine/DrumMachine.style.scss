@@ -1,0 +1,161 @@
+.DrumMachine {
+    width: 414px;
+    height: 445px;
+    padding: 20px;
+
+    border-radius: 25px;
+    outline: 25px solid #323232;
+    background: #222;
+    box-shadow: 27px 27px 36px rgba(0, 0, 0, 0.25);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    'rectbuttons rectbuttons'
+    'bigtuner smalltuners'
+    'bigtuner buttons'
+    'output buttons'
+    'volumizer buttons';
+
+    &-Buttons {
+        grid-area: buttons;
+        width: 270px;
+        height: 270px;
+        gap: 15px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+        button {
+            border-radius: 10px;
+            background: #4B4E6D;
+            text-transform: uppercase;
+
+            &:nth-last-child(-n+3) {
+                color: #222;
+                background: #84DCC6;
+            }
+        }
+    }
+
+    &-RectButtons {
+        grid-area: rectbuttons;
+        height: 20px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        button {
+            width: 75px;
+            height: 100%;
+            border-radius: 6px;
+            background: #f5f5f5;
+        }  
+    }
+
+    &-Tuners {
+        display: flex;
+        justify-content: space-between;
+
+        span {
+            width: 60px;
+            height: 60px;
+            background: #f5f5f5;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        &_type_big {
+            grid-area: bigtuner;
+            span {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        &_type_small {
+            grid-area: smalltuners;
+            span {
+                &::before {
+                    content: '';
+                    width: 10px;
+                    height: 10px;  
+                    border-radius: 50%;
+                    background: #AD3911;
+                    position: absolute;
+                    left: 15%;
+                    top: 25%;
+                }
+            }
+        }
+    }
+
+    &-Output {
+        grid-area: output;
+        font-size: 12px;
+        width: 85px;
+        height: 25px;
+        border-radius: 4px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #323232;
+    }
+
+    &-Volumizer {
+        grid-area: volumizer;
+        width: 70px;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        div {
+            width: 35px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+            input[type=range] {
+                position: absolute;
+                left: -57px;
+                z-index: 1;
+            }
+
+            img {
+                position: absolute;
+                left: 20px;
+            }
+        }
+    }
+
+    input[type=range] {
+        -webkit-appearance: none;
+        width: 140px;
+        height: 8px;
+        border-radius: 5px;  
+        background: #f5f5f5;
+        outline: none;
+        transform: rotate(270deg);
+
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%; 
+            background: #4B4E6D;
+            cursor: pointer;
+        }
+        
+        &::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #4B4E6D;
+            cursor: pointer;
+        }
+    }
+}

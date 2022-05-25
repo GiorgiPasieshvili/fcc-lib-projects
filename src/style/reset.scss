@@ -41,6 +41,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
   button {
     color: inherit;
+    background: inherit;
     border: none; }
 
   a {
@@ -49,4 +50,8 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     &:hover {
       color: inherit;
     }
+  }
+
+  textarea {
+    color: inherit;
   }

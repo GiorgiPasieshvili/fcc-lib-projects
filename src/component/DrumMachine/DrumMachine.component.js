@@ -11,6 +11,61 @@ export class DrumMachine extends PureComponent {
         output: PropTypes.string.isRequired
       }
 
+    renderRectButtons() {
+        return (
+            <div className="DrumMachine-RectButtons">
+                <button>asd</button>
+                <button>asd</button>
+                <button>asd</button>
+                <button>asd</button>
+            </div>
+        );
+    }
+
+    renderSmallTuners() {
+        return (
+            <div className="DrumMachine-Tuners DrumMachine-Tuners_type_small">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        );
+    }
+    
+    renderBigTuner() {
+        return (
+            <div className="DrumMachine-Tuners DrumMachine-Tuners_type_big">
+                <span></span>
+            </div>
+        );
+    }
+
+    renderOutput() {
+        const { output } = this.props;
+
+        return (
+            <div className="DrumMachine-Output">
+                { output }
+            </div>
+        ); 
+    }
+
+    renderVolumizer() {
+        return (
+            <div className="DrumMachine-Volumizer">
+                <div>
+                    <input type="range" />
+                    <img src="assist/levels.png" alt="levels" />
+                </div>
+                <div>
+                    <input type="range" />
+                    <img src="assist/levels.png" alt="levels" />
+                </div>
+            </div>
+        );
+    }
+
     renderButtons() {
         const { onButtonClick } = this.props;
 
@@ -36,20 +91,14 @@ export class DrumMachine extends PureComponent {
         );
     }
 
-    renderOutput() {
-        const { output } = this.props;
-
-        return (
-            <h5 className="DrumMachine-Output">
-                { output }
-            </h5>
-        );
-    }
-
     render() {
         return (
             <div className="DrumMachine">
+                { this.renderRectButtons() }
+                { this.renderBigTuner() }
+                { this.renderSmallTuners() }
                 { this.renderOutput() }
+                { this.renderVolumizer() }
                 { this.renderButtons() }
             </div>
         );

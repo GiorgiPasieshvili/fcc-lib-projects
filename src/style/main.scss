@@ -10,3 +10,13 @@ body {
     color: $light-color;
     background: linear-gradient(315deg, $bluish-color 0%, $greenish-color 100%);
 }
+
+/* ScrollBar Styles */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background: $light-color;
+}

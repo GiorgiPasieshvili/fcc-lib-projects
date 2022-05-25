@@ -4,12 +4,13 @@ import { PureComponent } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Import Components
+import HomeText from './component/HomeText';
+import Menu from './component/Menu';
 import Calculator from './component/Calculator';
 import DrumMachine from './component/DrumMachine';
 import MarkdownPreviewer from './component/MarkdownPreviewer';
 import PomodoroClock from './component/PomodoroClock';
 import QuoteMachine from './component/QuoteMachine';
-import Menu from './component/Menu';
 
 // Import Styles
 import './style/reset.scss';
@@ -22,7 +23,7 @@ class AppRouter extends PureComponent {
                 <Menu />
 
                 <Routes>
-                    <Route path="/" element={<div>freeCodeCamp Projects...</div>} />
+                    <Route path="/" element={<HomeText />} />
                     <Route path="/calculator" element={<Calculator />} />
                     <Route path="/drummachine" element={<DrumMachine />} />
                     <Route path="/markdownpreviewer" element={<MarkdownPreviewer />} />
