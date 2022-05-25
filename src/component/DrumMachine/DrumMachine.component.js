@@ -14,10 +14,10 @@ export class DrumMachine extends PureComponent {
     renderRectButtons() {
         return (
             <div className="DrumMachine-RectButtons">
-                <button>asd</button>
-                <button>asd</button>
-                <button>asd</button>
-                <button>asd</button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
             </div>
         );
     }
