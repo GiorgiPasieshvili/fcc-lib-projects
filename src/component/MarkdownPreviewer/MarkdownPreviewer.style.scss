@@ -24,5 +24,13 @@
         border: 18px solid #222;
         overflow-y: scroll;
         word-break: break-word;
+
+        * {
+            all: revert;
+        }
+
+        img {
+            max-width: 500px;
+        }
     }
 }

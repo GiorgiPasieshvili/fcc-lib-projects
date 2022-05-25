@@ -1,7 +1,8 @@
 .DrumMachine {
-    width: 414px;
-    height: 445px;
+    width: 415px;
+    height: 415px;
     padding: 20px;
+    gap: 10px;
 
     border-radius: 25px;
     outline: 25px solid #323232;
@@ -16,6 +17,8 @@
     'bigtuner buttons'
     'output buttons'
     'volumizer buttons';
+    justify-content: center;
+    align-items: center;
 
     &-Buttons {
         grid-area: buttons;
