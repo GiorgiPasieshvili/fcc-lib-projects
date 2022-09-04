@@ -1,3 +1,3 @@
-# freeCodeCamp Projects
+# FreeCodeCamp Front End Libraries Projects
 
-https://freecodecamp-projects-liard.vercel.app/
+https://fcc-lib.vercel.app/
