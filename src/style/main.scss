@@ -4,11 +4,6 @@
 @use "functions" as fn;
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  height: 100vh;
   background: linear-gradient(
     315deg,
     c.$color-primary 0%,
@@ -17,6 +12,11 @@ body {
 
   font-family: "Roboto Mono", sans-serif, monospace;
   color: c.$color-light;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 button {

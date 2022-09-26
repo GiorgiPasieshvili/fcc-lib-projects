@@ -1,13 +1,23 @@
 @use "style/colors" as c;
 @use "style/functions" as fn;
+@use "style/mixins" as mix;
 
 .quote-machine {
   display: flex;
   flex-direction: column;
 
-  width: fn.rem(445);
+  width: min(fn.rem(445), 90vw);
   padding: fn.rem(30);
   background: c.$color-dark;
+
+  @include mix.mobile {
+    margin-top: 5.5rem;
+  }
+
+  @media (min-height: 560px) {
+    margin-top: 3rem;
+  }
+  
 
   border-radius: fn.rem(6);
   box-shadow: 0.5rem 0.5rem 1rem c.$color-shadow;
@@ -16,11 +26,19 @@
     margin-bottom: 1rem;
     font-size: fn.rem(20);
     line-height: 1.3;
+
+    @include mix.mobile {
+      font-size: 1rem;
+    }
   }
 
   &__author {
     align-self: flex-end;
     margin-bottom: fn.rem(24);
+
+    @include mix.mobile {
+      font-size: fn.rem(15);
+    }
   }
 
   &__buttons {
@@ -30,6 +48,10 @@
 
     a {
       border-radius: fn.rem(5);
+
+      @include mix.mobile {
+        font-size: fn.rem(14);
+      }
 
       &:hover {
         transform: scale(1.02);
@@ -42,6 +64,11 @@
       background: c.$color-accent;
       color: c.$color-dark;
       border-radius: fn.rem(5);
+
+      @include mix.mobile {
+        width: fn.rem(100);
+        font-size: fn.rem(14);
+      }
 
       &:hover {
         transform: scale(1.02);

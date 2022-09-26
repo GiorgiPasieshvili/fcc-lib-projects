@@ -7,13 +7,17 @@
   flex-direction: column;
   gap: 1rem;
 
-  width: fn.rem(380);
-  height: fn.rem(525);
+  width: min(fn.rem(380), 90vw);
+  aspect-ratio: 3.04 / 4.2;
   padding: 1rem;
   background: c.$color-dark;
 
   border-radius: fn.rem(4);
   box-shadow: 0.5rem 0.5rem 1rem c.$color-shadow;
+
+  @include mix.mobile {
+    margin-top: 5.5rem;
+  }
 
   &__screen {
     display: flex;
@@ -26,16 +30,23 @@
     padding: fn.rem(15);
     background: lighten(c.$color-dark, 2);
 
-
     text-align: right;
     overflow: hidden;
 
     span:first-child {
       font-size: fn.rem(23);
+
+      @include mix.mobile {
+        font-size: fn.rem(20);
+      }
     }
 
     span:last-child {
       font-size: fn.rem(39);
+
+      @include mix.mobile {
+        font-size: fn.rem(33);
+      }
     }
   }
 
@@ -56,6 +67,10 @@
     button {
       background: c.$color-primary;
       font-size: fn.rem(26);
+
+      @include mix.mobile {
+        font-size: fn.rem(22);
+      }
 
       &:hover {
         outline: 1px solid c.$color-light;

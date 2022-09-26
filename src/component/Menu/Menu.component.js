@@ -21,7 +21,7 @@ export class Menu extends PureComponent {
     if (pathname === "/") return null;
 
     return (
-      <li>
+      <li className="menu__item">
         <Link to="/">
           <img src="assets/back.png" alt="back" />
         </Link>

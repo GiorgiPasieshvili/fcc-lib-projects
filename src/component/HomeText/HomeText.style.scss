@@ -1,8 +1,14 @@
 @use "style/colors" as c;
 @use "style/functions" as fn;
+@use "style/mixins" as mix;
 
 .home-text {
+  text-align: center;
   font-size: fn.rem(50);
+
+  @include mix.mobile {
+    font-size: fn.rem(32);
+  }
 
   span {
     color: c.$color-accent;

@@ -1,10 +1,15 @@
 @use "style/colors" as c;
 @use "style/functions" as fn;
+@use "style/mixins" as mix;
 
 .pomodoro-clock {
-  width: fn.rem(525);
+  width: min(fn.rem(525), 90vw);
   padding: fn.rem(35);
   background: c.$color-dark;
+
+  @include mix.mobile {
+    margin-top: 6rem;
+  }
 
   text-align: center;
   border-radius: 0.5rem;
@@ -13,6 +18,11 @@
   &__top-area {
     margin-bottom: fn.rem(28);
     font-size: fn.rem(37);
+
+    @include mix.mobile {
+      font-size: fn.rem(27);
+      margin-bottom: fn.rem(16);
+    }
 
     span {
       color: c.$color-accent;
@@ -26,9 +36,17 @@
 
     margin-bottom: fn.rem(30);
 
+    @include mix.mobile {
+      margin-bottom: fn.rem(20);
+    }
+
     h4 {
       font-size: fn.rem(27);
       margin-bottom: fn.rem(20);
+
+      @include mix.mobile {
+        font-size: fn.rem(20);
+      }
 
       span {
         color: c.$color-accent;
@@ -52,7 +70,7 @@
       @mixin pomodoro-thumb() {
         -webkit-appearance: none;
         appearance: none;
-        
+
         width: fn.rem(25);
         height: fn.rem(25);
         background: c.$color-primary;
@@ -78,12 +96,24 @@
 
     h3 {
       font-size: 2rem;
+
+      @include mix.mobile {
+        font-size: fn.rem(20);
+      }
     }
 
     button {
       margin-right: 0.5rem;
       padding: 0;
       background: unset;
+
+      width: fn.rem(50);
+      height: fn.rem(50);
+
+      @include mix.mobile {
+        width: fn.rem(30);
+        height: fn.rem(30);
+      }
 
       &:hover {
         transform: scale(1.05);

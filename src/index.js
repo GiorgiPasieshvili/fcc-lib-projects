@@ -20,7 +20,6 @@ class AppRouter extends PureComponent {
     return (
       <BrowserRouter>
         <Menu />
-
         <Routes>
           <Route path="/" element={<HomeText />} />
           <Route path="/calculator" element={<Calculator />} />
