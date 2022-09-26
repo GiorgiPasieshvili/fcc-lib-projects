@@ -81,10 +81,10 @@ export class PomodoroClock extends PureComponent {
 
         <div>
           <button onClick={() => onPlay()}>
-            <img src="assets/play-icon.png" alt="play icon" />
+            <img src="assets/play.png" alt="play icon" />
           </button>
           <button onClick={() => onReset()}>
-            <img src="assets/refresh-icon.png" alt="refresh icon" />
+            <img src="assets/refresh.png" alt="refresh icon" />
           </button>
         </div>
       </div>

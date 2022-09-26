@@ -1,14 +1,8 @@
+@use "style/functions" as fn;
+@use "style/mixins" as mix;
+@use "style/colors" as c;
+
 .drum-machine {
-  width: 415px;
-  height: 415px;
-  padding: 20px;
-  gap: 15px;
-
-  border-radius: 25px;
-  outline: 25px solid #323232;
-  background: #222;
-  box-shadow: 27px 27px 36px rgba(0, 0, 0, 0.25);
-
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas:
@@ -17,41 +11,52 @@
     "bigtuner buttons"
     "output buttons"
     "volumizer buttons";
+  gap: fn.rem(15);
+
+  width: fn.rem(415);
+  height: fn.rem(415);
+  padding: 1.25rem;
+  background: c.$color-dark;
+
+  border-radius: fn.rem(25);
+  outline: fn.rem(25) solid lighten(c.$color-dark, 5);
+  box-shadow: 1.65rem 1.65rem 2.25rem c.$color-shadow;
 
   &__pads {
     grid-area: buttons;
 
-    width: 270px;
-    height: 270px;
-    gap: 15px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: fn.rem(15);
+
+    width: fn.rem(270);
+    height: fn.rem(270);
   }
 
   &__pad {
-    border-radius: 10px;
-    background: #4b4e6d;
+    background: c.$color-primary;
+    border-radius: fn.rem(10);
     text-transform: uppercase;
 
     &:nth-last-child(-n + 3) {
-      color: #222;
-      background: #84dcc6;
+      color: c.$color-dark;
+      background: c.$color-accent;
     }
   }
 
   &__rect-buttons {
     grid-area: rectbuttons;
 
-    height: 18px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    height: fn.rem(18);
   }
 
   &__rect-button {
-    width: 75px;
+    width: fn.rem(75);
     height: 100%;
-    border-radius: 6px;
     background: radial-gradient(
       139.89% 139.89% at 50% 50%,
       #ffffff 0%,
@@ -59,6 +64,7 @@
       #ffffff 60.42%,
       #d9d9d9 97.4%
     );
+    border-radius: fn.rem(6);
   }
 
   &__small-tuners {
@@ -69,11 +75,12 @@
   }
 
   &__small-tuner {
-    width: 55px;
-    height: 55px;
-    background: #f5f5f5;
-    border-radius: 50%;
     position: relative;
+
+    width: fn.rem(55);
+    height: fn.rem(55);
+
+    background: #f5f5f5;
     background: radial-gradient(
       139.89% 139.89% at 50% 50%,
       #ffffff 0%,
@@ -81,17 +88,21 @@
       #ffffff 60.42%,
       #d9d9d9 97.4%
     );
+
+    border-radius: 50%;
     cursor: pointer;
 
     &::before {
       content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #ad3911;
       position: absolute;
-      left: 10px;
+      left: fn.rem(10);
       top: 50%;
+
+      width: fn.rem(8);
+      height: fn.rem(8);
+      background: #ad3911;
+
+      border-radius: 50%;
       transform: translateY(-50%);
     }
 
@@ -110,12 +121,11 @@
 
   &__big-tuner {
     grid-area: bigtuner;
+    position: relative;
 
     width: 90px;
     height: 90px;
     background: #f5f5f5;
-    border-radius: 50%;
-    position: relative;
     background: radial-gradient(
       139.89% 139.89% at 50% 50%,
       #ffffff 0%,
@@ -123,84 +133,95 @@
       #ffffff 60.42%,
       #d9d9d9 97.4%
     );
+
+    border-radius: 50%;
     cursor: pointer;
   }
 
   &__output {
     grid-area: output;
 
-    font-size: 12px;
-    width: 85px;
-    height: 25px;
-    border-radius: 4px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #323232;
+
+    width: fn.rem(85);
+    height: fn.rem(25);
+    background: lighten(c.$color-dark, 5);
+
+    font-size: fn.rem(12);
+    border-radius: fn.rem(4);
   }
 
   &__volumizers {
     grid-area: volumizer;
+    align-self: center;
 
-    align-self: flex-end;
-    height: 160px;
-    gap: 10px;
     display: flex;
     align-items: center;
+    gap: fn.rem(10);
+
+    height: fn.rem(170);
   }
 
   &__volumizer {
-    width: 35px;
-    height: 100%;
+    position: relative;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+
+    width: fn.rem(35);
+    height: 100%;
 
     input {
       position: absolute;
-      left: -70px;
+      right: fn.rem(-60);
       z-index: 1;
 
       box-sizing: content-box;
       -webkit-appearance: none;
-      width: 160px;
-      height: 12px;
-      border-radius: 9px;
-      outline: 3px solid #f5f5f5;
+
+      width: fn.rem(170);
+      height: fn.rem(12);
       background: linear-gradient(270deg, #d14444 0.34%, #d1c344 100.12%);
+
+      border-radius: fn.rem(9);
+      outline: fn.rem(3) solid c.$color-light;
       transform: rotate(270deg);
 
-      &::-webkit-slider-thumb {
+      @mixin drum-thumb() {
         -webkit-appearance: none;
         appearance: none;
-        width: 16px;
-        height: 20px;
-        background: url("../../../public/assets/slider-thumb.png") no-repeat
-          fixed center/cover;
-        cursor: pointer;
+
         position: relative;
         z-index: 100;
+
+        width: fn.rem(16);
+        height: fn.rem(20);
+
+        background-image: url("../../../public/assets/drum-thumb.png");
+        background-repeat: no-repeat;
+        background-position: fixed center;
+        background-size: cover;
+
+        cursor: pointer;
         transform: rotate(90deg);
       }
 
+      &::-webkit-slider-thumb {
+        @include drum-thumb;
+      }
+
       &::-moz-range-thumb {
-        width: 16px;
-        height: 20px;
-        background: url("../../../public/assets/slider-thumb.png") no-repeat
-          fixed center/cover;
-        cursor: pointer;
-        position: relative;
-        z-index: 100;
-        transform: rotate(90deg);
+        @include drum-thumb;
       }
     }
 
     img {
       height: 95%;
       position: absolute;
-      left: 23px;
+      left: fn.rem(23);
     }
   }
 }

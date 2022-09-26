@@ -11,12 +11,12 @@ body {
   height: 100vh;
   background: linear-gradient(
     315deg,
-    c.$bluish-color 0%,
-    c.$greenish-color 100%
+    c.$color-primary 0%,
+    c.$color-accent 100%
   );
 
   font-family: "Roboto Mono", sans-serif, monospace;
-  color: c.$light-color;
+  color: c.$color-light;
 }
 
 button {
@@ -42,5 +42,5 @@ a {
 
 ::-webkit-scrollbar-thumb {
   border-radius: fn.rem(6);
-  background: c.$light-color;
+  background: c.$color-light;
 }

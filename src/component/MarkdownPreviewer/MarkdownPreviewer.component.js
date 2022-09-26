@@ -2,6 +2,7 @@ import { PureComponent } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
+import md from './markdown.md'
 import "./MarkdownPreviewer.style.scss";
 
 /** @namespace Component/MarkdownPreviewer/Component */
@@ -11,7 +12,7 @@ export class MarkdownPreviewer extends PureComponent {
   };
 
   componentDidMount() {
-    fetch("assets/markdown.md")
+    fetch(md)
       .then((res) => res.text())
       .then((text) => this.setState({ content: text }));
   }

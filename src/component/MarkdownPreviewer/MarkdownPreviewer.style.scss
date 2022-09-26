@@ -1,27 +1,29 @@
+@use "style/colors" as c;
+@use "style/functions" as fn;
+
 .markdown-previewer {
   display: flex;
   align-items: center;
-  gap: 60px;
+  gap: fn.rem(60);
 
   &__editor {
-    font-size: 15px;
+    width: fn.rem(600);
+    height: fn.rem(360);
+    background: c.$color-dark;
 
-    width: 600px;
-    height: 360px;
-
-    background: #222222;
-    box-shadow: 7px 7px 16px rgba(0, 0, 0, 0.25);
-    border: 20px solid #222;
+    font-size: fn.rem(15);
+    box-shadow: 0.5rem 0.5rem 1rem c.$color-shadow;
+    border: fn.rem(20) solid c.$color-dark;
   }
 
   &__output {
-    font-size: 20px;
-    width: 800px;
-    height: 550px;
+    width: fn.rem(800);
+    height: fn.rem(550);
+    background: c.$color-dark;
 
-    background: #222222;
-    box-shadow: 7px 7px 16px rgba(0, 0, 0, 0.25);
-    border: 18px solid #222;
+    font-size: fn.rem(20);
+    box-shadow: 0.5rem 0.5rem 1rem c.$color-shadow;
+    border: fn.rem(18) solid c.$color-dark;
     overflow-y: scroll;
     word-break: break-word;
 
@@ -30,7 +32,7 @@
     }
 
     img {
-      max-width: 500px;
+      max-width: fn.rem(500);
     }
   }
 }

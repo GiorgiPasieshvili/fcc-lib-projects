@@ -1,39 +1,47 @@
+@use "style/functions" as fn;
+@use "style/mixins" as mix;
+@use "style/colors" as c;
+
 .calculator {
-  width: 380px;
-  height: 525px;
-  border-radius: 4px;
-  padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  background: #222;
-  box-shadow: 7px 7px 16px rgba(0, 0, 0, 0.25);
+  gap: 1rem;
+
+  width: fn.rem(380);
+  height: fn.rem(525);
+  padding: 1rem;
+  background: c.$color-dark;
+
+  border-radius: fn.rem(4);
+  box-shadow: 0.5rem 0.5rem 1rem c.$color-shadow;
 
   &__screen {
-    height: 120px;
-
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
-    gap: 4px;
+    gap: fn.rem(4);
 
-    padding: 15px;
-    background: #272727;
+    height: fn.rem(120);
+    padding: fn.rem(15);
+    background: lighten(c.$color-dark, 2);
+
+
     text-align: right;
     overflow: hidden;
 
     span:first-child {
-      font-size: 23px;
+      font-size: fn.rem(23);
     }
 
     span:last-child {
-      font-size: 39px;
+      font-size: fn.rem(39);
     }
   }
 
   &__buttons {
-    flex-grow: 1;
+    flex: 1;
+
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
@@ -42,67 +50,84 @@
       "four five six plus"
       "one two three match"
       "zero zero point match";
-    gap: 3px;
+
+    gap: fn.rem(3);
 
     button {
-      font-size: 26px;
-      background: #4b4e6d;
+      background: c.$color-primary;
+      font-size: fn.rem(26);
 
       &:hover {
-        outline: 1px solid #f5f5f5;
+        outline: 1px solid c.$color-light;
       }
+    }
+
+    #zero {
+      grid-area: zero;
+    }
+
+    #one {
+      grid-area: one;
+    }
+
+    #two {
+      grid-area: two;
+    }
+
+    #three {
+      grid-area: three;
+    }
+
+    #four {
+      grid-area: four;
+    }
+
+    #five {
+      grid-area: five;
+    }
+
+    #six {
+      grid-area: six;
+    }
+
+    #seven {
+      grid-area: seven;
+    }
+
+    #eight {
+      grid-area: eight;
+    }
+
+    #nine {
+      grid-area: nine;
+    }
+
+    #add {
+      grid-area: plus;
+    }
+
+    #subtract {
+      grid-area: minus;
+    }
+
+    #multiply {
+      grid-area: multiple;
+    }
+
+    #divide {
+      grid-area: divide;
     }
 
     #clear {
       grid-area: ac;
     }
-    #seven {
-      grid-area: seven;
-    }
-    #eight {
-      grid-area: eight;
-    }
-    #nine {
-      grid-area: nine;
-    }
-    #four {
-      grid-area: four;
-    }
-    #five {
-      grid-area: five;
-    }
-    #six {
-      grid-area: six;
-    }
-    #one {
-      grid-area: one;
-    }
-    #two {
-      grid-area: two;
-    }
-    #three {
-      grid-area: three;
-    }
-    #zero {
-      grid-area: zero;
-    }
+
     #point {
       grid-area: point;
     }
-    #add {
-      grid-area: plus;
-    }
-    #subtract {
-      grid-area: minus;
-    }
-    #multiply {
-      grid-area: multiple;
-    }
-    #divide {
-      grid-area: divide;
-    }
+
     #match {
-      background: #84dcc6;
+      background: c.$color-accent;
       grid-area: match;
     }
   }

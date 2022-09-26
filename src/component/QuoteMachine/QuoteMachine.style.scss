@@ -1,22 +1,26 @@
-.quote-machine {
-  width: 445px;
-  padding: 30px;
-  border-radius: 6px;
+@use "style/colors" as c;
+@use "style/functions" as fn;
 
+.quote-machine {
   display: flex;
   flex-direction: column;
-  background: #222;
-  box-shadow: 7px 7px 16px rgba(0, 0, 0, 0.25);
+
+  width: fn.rem(445);
+  padding: fn.rem(30);
+  background: c.$color-dark;
+
+  border-radius: fn.rem(6);
+  box-shadow: 0.5rem 0.5rem 1rem c.$color-shadow;
 
   &__quote {
-    font-size: 20px;
+    margin-bottom: 1rem;
+    font-size: fn.rem(20);
     line-height: 1.3;
-    margin-bottom: 16px;
   }
 
   &__author {
     align-self: flex-end;
-    margin-bottom: 24px;
+    margin-bottom: fn.rem(24);
   }
 
   &__buttons {
@@ -25,7 +29,7 @@
     align-items: center;
 
     a {
-      border-radius: 5px;
+      border-radius: fn.rem(5);
 
       &:hover {
         transform: scale(1.02);
@@ -33,11 +37,11 @@
     }
 
     button {
-      width: 120px;
-      height: 40px;
-      border-radius: 5px;
-      color: #222;
-      background: #84dcc6;
+      width: fn.rem(120);
+      height: fn.rem(40);
+      background: c.$color-accent;
+      color: c.$color-dark;
+      border-radius: fn.rem(5);
 
       &:hover {
         transform: scale(1.02);

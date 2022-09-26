@@ -23,7 +23,7 @@ export class Menu extends PureComponent {
     return (
       <li>
         <Link to="/">
-          <img src="assets/back-icon.png" alt="back icon" />
+          <img src="assets/back.png" alt="back" />
         </Link>
       </li>
     );
@@ -35,27 +35,27 @@ export class Menu extends PureComponent {
         <ul className="menu__list">
           <li className="menu__item">
             <Link to="calculator">
-              <img src="assets/calc-icon.png" alt="calculator" />
+              <img src="assets/calculator.png" alt="calculator" />
             </Link>
           </li>
           <li className="menu__item">
             <Link to="drum-machine">
-              <img src="assets/drum-icon.png" alt="drum machine" />
+              <img src="assets/drum.png" alt="drum machine" />
             </Link>
           </li>
           <li className="menu__item">
             <Link to="markdown-previewer">
-              <img src="assets/markdown-icon.png" alt="markdown previewer" />
+              <img src="assets/markdown.png" alt="markdown previewer" />
             </Link>
           </li>
           <li className="menu__item">
             <Link to="pomodoro-clock">
-              <img src="assets/pomodoro-icon.png" alt="pomodoro clock" />
+              <img src="assets/pomodoro.png" alt="pomodoro clock" />
             </Link>
           </li>
           <li className="menu__item">
             <Link to="quote-machine">
-              <img src="assets/quote-icon.png" alt="quotes machine" />
+              <img src="assets/quote.png" alt="quotes machine" />
             </Link>
           </li>
           {this.renderBack()}
