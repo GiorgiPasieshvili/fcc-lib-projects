@@ -3,7 +3,18 @@
 @use "mixins" as mix;
 @use "functions" as fn;
 
-body {
+.app {
+  display: grid;
+  place-items: center;
+  align-items: center;
+  grid-template-rows: auto 1fr;
+
+  @include mix.desktop {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto;
+  }
+
+  min-height: 100vh;
   background: linear-gradient(
     315deg,
     c.$color-primary 0%,
@@ -12,11 +23,6 @@ body {
 
   font-family: "Roboto Mono", sans-serif, monospace;
   color: c.$color-light;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
 }
 
 button {

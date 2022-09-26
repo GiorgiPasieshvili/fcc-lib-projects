@@ -4,45 +4,38 @@
 
 .markdown-previewer {
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: fn.rem(60);
-
-  @include mix.desktop {
-    margin-right: fn.rem(-75);
-  }
+  gap: 3.5rem;
 
   @include mix.mobile {
     flex-direction: column;
-    margin-top: 7rem;
-  }
-
-  @media (min-height: 550px) {
-    margin-top: 5rem;
+    margin: 3.5rem 0;
   }
 
   &__editor {
-    width: min(fn.rem(600), 30vw);
-    aspect-ratio: 2/ 1.2;
-    @include mix.mobile {
-      width: min(fn.rem(600), 90vw);
+    width: 90%;
+    aspect-ratio: 10 / 6;
+
+    @include mix.desktop {
+      width: 37%;
     }
 
     background: c.$color-dark;
-
     font-size: fn.rem(15);
     box-shadow: 0.5rem 0.5rem 1rem c.$color-shadow;
     border: fn.rem(20) solid c.$color-dark;
   }
 
   &__output {
-    width: min(fn.rem(800), 40vw);
-    aspect-ratio: 3 / 2.065;
-    @include mix.mobile {
-      width: min(fn.rem(800), 90vw);
+    width: 90%;
+    aspect-ratio: 3 / 2;
+
+    @include mix.desktop {
+      width: 49%;
     }
 
     background: c.$color-dark;
-
     font-size: fn.rem(20);
     box-shadow: 0.5rem 0.5rem 1rem c.$color-shadow;
     border: fn.rem(18) solid c.$color-dark;
@@ -54,7 +47,7 @@
     }
 
     img {
-      max-width: fn.rem(500);
+      max-width: min(fn.rem(500), 100%);
     }
   }
 }

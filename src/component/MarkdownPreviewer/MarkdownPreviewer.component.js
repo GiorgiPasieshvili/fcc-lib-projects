@@ -31,8 +31,6 @@ export class MarkdownPreviewer extends PureComponent {
         className="markdown-previewer__editor"
         onChange={(e) => this.onChange(e)}
         value={content}
-        cols="80"
-        rows="10"
       ></textarea>
     );
   }

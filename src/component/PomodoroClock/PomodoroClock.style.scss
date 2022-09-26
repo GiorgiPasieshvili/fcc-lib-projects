@@ -3,13 +3,9 @@
 @use "style/mixins" as mix;
 
 .pomodoro-clock {
-  width: min(fn.rem(525), 90vw);
+  width: min(fn.rem(525), 90%);
   padding: fn.rem(35);
   background: c.$color-dark;
-
-  @include mix.mobile {
-    margin-top: 6rem;
-  }
 
   text-align: center;
   border-radius: 0.5rem;

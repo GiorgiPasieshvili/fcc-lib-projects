@@ -19,15 +19,17 @@ class AppRouter extends PureComponent {
   render() {
     return (
       <BrowserRouter>
-        <Menu />
-        <Routes>
-          <Route path="/" element={<HomeText />} />
-          <Route path="/calculator" element={<Calculator />} />
-          <Route path="/drum-machine" element={<DrumMachine />} />
-          <Route path="/markdown-previewer" element={<MarkdownPreviewer />} />
-          <Route path="/pomodoro-clock" element={<PomodoroClock />} />
-          <Route path="/quote-machine" element={<QuoteMachine />} />
-        </Routes>
+        <div className="app">
+          <Menu />
+          <Routes>
+            <Route path="/" element={<HomeText />} />
+            <Route path="/calculator" element={<Calculator />} />
+            <Route path="/drum-machine" element={<DrumMachine />} />
+            <Route path="/markdown-previewer" element={<MarkdownPreviewer />} />
+            <Route path="/pomodoro-clock" element={<PomodoroClock />} />
+            <Route path="/quote-machine" element={<QuoteMachine />} />
+          </Routes>
+        </div>
       </BrowserRouter>
     );
   }

@@ -6,18 +6,9 @@
   display: flex;
   flex-direction: column;
 
-  width: min(fn.rem(445), 90vw);
+  width: min(fn.rem(445), 90%);
   padding: fn.rem(30);
   background: c.$color-dark;
-
-  @include mix.mobile {
-    margin-top: 5.5rem;
-  }
-
-  @media (min-height: 560px) {
-    margin-top: 3rem;
-  }
-  
 
   border-radius: fn.rem(6);
   box-shadow: 0.5rem 0.5rem 1rem c.$color-shadow;
