@@ -6,11 +6,11 @@
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-areas:
-    "rectbuttons rectbuttons"
-    "bigtuner smalltuners"
-    "bigtuner buttons"
-    "output buttons"
-    "volumizer buttons";
+    "rect-buttons rect-buttons"
+    "big-tuner small-tuners"
+    "big-tuner pads"
+    "output pads"
+    "volumizers pads";
   gap: fn.rem(15);
 
   width: min(fn.rem(415), 80%);
@@ -24,7 +24,7 @@
   box-shadow: 1.65rem 1.65rem 2.25rem c.$color-shadow;
 
   &__pads {
-    grid-area: buttons;
+    grid-area: pads;
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -43,7 +43,7 @@
   }
 
   &__rect-buttons {
-    grid-area: rectbuttons;
+    grid-area: rect-buttons;
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -53,20 +53,17 @@
   &__rect-button {
     height: fn.rem(18);
     background: radial-gradient(
-      139.89% 139.89% at 50% 50%,
+      140% 140% at 50% 50%,
       #ffffff 0%,
-      #d9d9d9 31.77%,
-      #ffffff 60.42%,
-      #d9d9d9 97.4%
+      #d9d9d9 30%,
+      #ffffff 60%,
+      #d9d9d9 97%
     );
     border-radius: fn.rem(6);
   }
 
   &__small-tuners {
-    grid-area: smalltuners;
-
-    display: flex;
-    justify-content: space-between;
+    grid-area: small-tuners;
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -77,13 +74,12 @@
     position: relative;
     aspect-ratio: 1;
 
-    background: #f5f5f5;
     background: radial-gradient(
-      139.89% 139.89% at 50% 50%,
+      140% 140% at 50% 50%,
       #ffffff 0%,
-      #d9d9d9 31.77%,
-      #ffffff 60.42%,
-      #d9d9d9 97.4%
+      #d9d9d9 30%,
+      #ffffff 60%,
+      #d9d9d9 97%
     );
 
     border-radius: 50%;
@@ -117,17 +113,16 @@
   }
 
   &__big-tuner {
-    grid-area: bigtuner;
+    grid-area: big-tuner;
     position: relative;
     aspect-ratio: 1;
 
-    background: #f5f5f5;
     background: radial-gradient(
-      139.89% 139.89% at 50% 50%,
+      140% 140% at 50% 50%,
       #ffffff 0%,
-      #d9d9d9 31.77%,
-      #ffffff 60.42%,
-      #d9d9d9 97.4%
+      #d9d9d9 30%,
+      #ffffff 60%,
+      #d9d9d9 97%
     );
 
     border-radius: 50%;
@@ -141,9 +136,7 @@
     justify-content: center;
     align-items: center;
 
-    // width: fn.rem(85);
     height: fn.rem(25);
-
     background: lighten(c.$color-dark, 5);
 
     font-size: fn.rem(12);
@@ -151,37 +144,38 @@
   }
 
   &__volumizers {
-    grid-area: volumizer;
-    align-self: center;
+    grid-area: volumizers;
 
     display: flex;
-    align-items: center;
-    gap: fn.rem(10);
+    gap: fn.rem(12);
 
-    aspect-ratio: 1 / 1.9;
+    @include mix.desktop {
+      align-self: flex-end;
+    }
+
+    aspect-ratio: 10 / 19;
   }
 
   &__volumizer {
     position: relative;
 
     display: flex;
-    justify-content: center;
     align-items: center;
 
-    width: 39%;
+    width: 36%;
     height: 100%;
 
     input {
       position: absolute;
-      right: -180%;
+      right: -200%;
       z-index: 1;
 
       box-sizing: content-box;
       -webkit-appearance: none;
 
-      width: 500%;
-      height: 7%;
-      background: linear-gradient(270deg, #d14444 0.34%, #d1c344 100.12%);
+      width: 525%;
+      height: 7.5%;
+      background: linear-gradient(270deg, #d14444 0.5%, #d1c344 100%);
 
       border-radius: fn.rem(9);
       outline: fn.rem(3) solid c.$color-light;
@@ -216,9 +210,9 @@
     }
 
     img {
-      height: 95%;
+      height: 94%;
       position: absolute;
-      right: 0;
+      right: fn.rem(-5);
     }
   }
 }

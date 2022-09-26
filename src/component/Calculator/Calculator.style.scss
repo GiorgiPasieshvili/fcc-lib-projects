@@ -3,12 +3,8 @@
 @use "style/colors" as c;
 
 .calculator {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-
   width: min(fn.rem(380), 90%);
-  aspect-ratio: 3.04 / 4.2;
+  aspect-ratio: 15 / 21;
   padding: 1rem;
   background: c.$color-dark;
 
@@ -16,20 +12,22 @@
   box-shadow: 0.5rem 0.5rem 1rem c.$color-shadow;
 
   &__screen {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
-    gap: fn.rem(4);
-
     height: fn.rem(120);
     padding: fn.rem(15);
+    margin-bottom: 1rem;
     background: lighten(c.$color-dark, 2);
 
-    text-align: right;
+    position: relative;
     overflow: hidden;
 
+    span {
+      position: absolute;
+      right: 1rem;
+    }
+
     span:first-child {
+      top: 1.45rem;
+
       font-size: fn.rem(23);
 
       @include mix.mobile {
@@ -38,6 +36,8 @@
     }
 
     span:last-child {
+      bottom: 0.8rem;
+
       font-size: fn.rem(39);
 
       @include mix.mobile {
@@ -47,14 +47,14 @@
   }
 
   &__buttons {
-    flex: 1;
+    height: 73%;
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
-      "ac ac divide multiple"
-      "seven eight nine minus"
-      "four five six plus"
+      "clear clear divide multiply"
+      "seven eight nine subtract"
+      "four five six add"
       "one two three match"
       "zero zero point match";
 
@@ -114,15 +114,15 @@
     }
 
     #add {
-      grid-area: plus;
+      grid-area: add;
     }
 
     #subtract {
-      grid-area: minus;
+      grid-area: subtract;
     }
 
     #multiply {
-      grid-area: multiple;
+      grid-area: multiply;
     }
 
     #divide {
@@ -130,7 +130,7 @@
     }
 
     #clear {
-      grid-area: ac;
+      grid-area: clear;
     }
 
     #point {

@@ -4,21 +4,29 @@
 
 .markdown-previewer {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   gap: 3.5rem;
 
+  @include mix.desktop {
+    flex-direction: row;
+    justify-content: center;
+  }
+
   @include mix.mobile {
-    flex-direction: column;
     margin: 3.5rem 0;
   }
 
   &__editor {
-    width: 90%;
-    aspect-ratio: 10 / 6;
+    width: min(fn.rem(600), 90%);
+
+    @include mix.mobile {
+      min-height: fn.rem(260);
+    }
 
     @include mix.desktop {
-      width: 37%;
+      width: min(fn.rem(600), 37%);
+      aspect-ratio: 10 / 6;
     }
 
     background: c.$color-dark;
@@ -28,15 +36,19 @@
   }
 
   &__output {
-    width: 90%;
-    aspect-ratio: 3 / 2;
+    width: min(fn.rem(800), 90%);
+
+    @include mix.mobile {
+      max-height: fn.rem(300);
+    }
 
     @include mix.desktop {
-      width: 49%;
+      width: min(fn.rem(800), 49%);
+      font-size: fn.rem(20);
+      aspect-ratio: 3 / 2;
     }
 
     background: c.$color-dark;
-    font-size: fn.rem(20);
     box-shadow: 0.5rem 0.5rem 1rem c.$color-shadow;
     border: fn.rem(18) solid c.$color-dark;
     overflow-y: scroll;

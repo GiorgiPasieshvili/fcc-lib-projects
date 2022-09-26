@@ -17,7 +17,8 @@
   &__list {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 5%;
 
     @include mix.desktop {
       flex-direction: column;
@@ -26,8 +27,8 @@
   }
 
   &__item img {
-    width: fn.rem(40);
-    height: fn.rem(40);
+    width: fn.rem(35);
+    height: fn.rem(35);
     object-fit: cover;
 
     @include mix.desktop {
