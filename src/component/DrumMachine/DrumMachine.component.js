@@ -56,11 +56,11 @@ export class DrumMachine extends PureComponent {
             <div className="DrumMachine-Volumizer">
                 <div>
                     <input type="range" />
-                    <img src="assist/levels.png" alt="levels" />
+                    <img src="assets/levels.png" alt="levels" />
                 </div>
                 <div>
                     <input type="range" />
-                    <img src="assist/levels.png" alt="levels" />
+                    <img src="assets/levels.png" alt="levels" />
                 </div>
             </div>
         );

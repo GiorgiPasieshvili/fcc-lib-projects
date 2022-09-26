@@ -1,22 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
-@import './variables.scss';
+@forward "reset";
+@use "colors" as c;
+@use "mixins" as mix;
+@use "functions" as fn;
 
 body {
-    font-family: $f-robo-mono, monospace;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: $light-color;
-    background: linear-gradient(315deg, $bluish-color 0%, $greenish-color 100%);
+  font-family: "Roboto Mono", sans-serif, monospace;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: c.$light-color;
+  background: linear-gradient(
+    315deg,
+    c.$bluish-color 0%,
+    c.$greenish-color 100%
+  );
+}
+
+button {
+  color: inherit;
+  cursor: pointer;
+  border: none;
+}
+
+textarea {
+  color: inherit;
+  resize: vertical;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 /* ScrollBar Styles */
 ::-webkit-scrollbar {
-    width: 5px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 6px;
-    background: $light-color;
+  border-radius: 6px;
+  background: c.$light-color;
 }

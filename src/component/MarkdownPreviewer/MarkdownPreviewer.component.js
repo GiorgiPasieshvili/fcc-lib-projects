@@ -11,7 +11,7 @@ export class MarkdownPreviewer extends PureComponent {
     }
 
     componentDidMount() {
-        fetch("assist/markdown.md")
+        fetch("assets/markdown.md")
         .then((res) => res.text())
         .then((text) => this.setState({ content: text }));
     }

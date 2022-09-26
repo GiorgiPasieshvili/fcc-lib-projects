@@ -1,6 +1,6 @@
 import { PureComponent } from 'react';
 import { Link } from "react-router-dom";
-import withRouter from '../../util/withRouter'
+import withRouter from 'util/withRouter'
 import PropTypes from 'prop-types';
 
 import './Menu.style.scss';
@@ -19,7 +19,7 @@ export class Menu extends PureComponent {
         return (
             <li>
                 <Link to="/">
-                    <img src="assist/back-icon.png" alt="back icon" />
+                    <img src="assets/back-icon.png" alt="back icon" />
                 </Link>
             </li>
         )
@@ -31,27 +31,27 @@ export class Menu extends PureComponent {
                  <ul>
                     <li>
                         <Link to="calculator">
-                            <img src="assist/calc-icon.png" alt="calculator icon" />
+                            <img src="assets/calc-icon.png" alt="calculator" />
                         </Link>
                     </li>
                     <li>
-                        <Link to="drummachine">
-                            <img src="assist/drum-icon.png" alt="drum machine icon" />
+                        <Link to="drum-machine">
+                            <img src="assets/drum-icon.png" alt="drum machine" />
                         </Link>
                     </li>
                     <li>
-                        <Link to="markdownpreviewer">
-                            <img src="assist/markdown-icon.png" alt="markdown previewer icon" />
+                        <Link to="markdown-previewer">
+                            <img src="assets/markdown-icon.png" alt="markdown previewer" />
                         </Link>
                     </li>
                     <li>
-                        <Link to="pomodoroclock">
-                            <img src="assist/pomodoro-icon.png" alt="pomodoro clock icon" />
+                        <Link to="pomodoro-clock">
+                            <img src="assets/pomodoro-icon.png" alt="pomodoro clock" />
                         </Link>
                     </li>
                     <li>
-                        <Link to="quotemachine">
-                            <img src="assist/quote-icon.png" alt="quotes machine icon" />
+                        <Link to="quote-machine">
+                            <img src="assets/quote-icon.png" alt="quotes machine" />
                         </Link>
                     </li>
                     { this.renderBack() }

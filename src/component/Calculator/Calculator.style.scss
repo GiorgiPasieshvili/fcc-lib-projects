@@ -41,7 +41,7 @@
         'seven eight nine minus'
         'four five six plus'
         'one two three match'
-        'null null point match';
+        'zero zero point match';
         gap: 3px;
 
         button {
@@ -63,7 +63,7 @@
         #one {  grid-area: one;  }
         #two {  grid-area: two;  }
         #three {  grid-area: three;  }
-        #zero {  grid-area: null;  }
+        #zero {  grid-area: zero;  }
         #point {  grid-area: point;  }
         #add {  grid-area: plus;  }
         #subtract {  grid-area: minus;  }

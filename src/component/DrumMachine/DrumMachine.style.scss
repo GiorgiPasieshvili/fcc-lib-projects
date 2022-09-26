@@ -163,7 +163,7 @@
             appearance: none;
             width: 16px;
             height: 20px;
-            background: url("../../../public/assist/slider-thumb.png") no-repeat fixed center/cover;
+            background: url("../../../public/assets/slider-thumb.png") no-repeat fixed center/cover;
             cursor: pointer;
             position: relative;
             z-index: 100;
@@ -173,7 +173,7 @@
         &::-moz-range-thumb {
             width: 16px;
             height: 20px;
-            background: url("../../../public/assist/slider-thumb.png") no-repeat fixed center/cover;
+            background: url("../../../public/assets/slider-thumb.png") no-repeat fixed center/cover;
             cursor: pointer;
             position: relative;
             z-index: 100;
