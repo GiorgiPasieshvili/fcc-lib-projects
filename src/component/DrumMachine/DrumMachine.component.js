@@ -1,108 +1,94 @@
-import { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import { PureComponent } from "react";
+import PropTypes from "prop-types";
 
-import DrumMachineButtonsJSON from './DrumMachineButtons';
-import './DrumMachine.style.scss';
+import DrumMachineData from "./DrumMachine.data.json";
+import "./DrumMachine.style.scss";
 
 /** @namespace Component/DrumMachine/Component */
 export class DrumMachine extends PureComponent {
-    static propTypes = {
-        onButtonClick: PropTypes.func.isRequired,
-        output: PropTypes.string.isRequired
-      }
+  static propTypes = {
+    onButtonClick: PropTypes.func.isRequired,
+    output: PropTypes.string.isRequired,
+  };
 
-    renderRectButtons() {
-        return (
-            <div className="DrumMachine-RectButtons">
-                <button></button>
-                <button></button>
-                <button></button>
-                <button></button>
-            </div>
-        );
-    }
+  renderRectButtons() {
+    return (
+      <div className="drum-machine__rect-buttons">
+        <button className="drum-machine__rect-button"></button>
+        <button className="drum-machine__rect-button"></button>
+        <button className="drum-machine__rect-button"></button>
+        <button className="drum-machine__rect-button"></button>
+      </div>
+    );
+  }
 
-    renderSmallTuners() {
-        return (
-            <div className="DrumMachine-Tuners DrumMachine-Tuners_type_small">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        );
-    }
-    
-    renderBigTuner() {
-        return (
-            <div className="DrumMachine-Tuners DrumMachine-Tuners_type_big">
-                <span></span>
-            </div>
-        );
-    }
+  renderSmallTuners() {
+    return (
+      <div className="drum-machine__small-tuners">
+        <button className="drum-machine__small-tuner"></button>
+        <button className="drum-machine__small-tuner"></button>
+        <button className="drum-machine__small-tuner"></button>
+        <button className="drum-machine__small-tuner"></button>
+      </div>
+    );
+  }
 
-    renderOutput() {
-        const { output } = this.props;
+  renderBigTuner() {
+    return (
+      <button className="drum-machine__big-tuner"></button>
+    );
+  }
 
-        return (
-            <div className="DrumMachine-Output">
-                { output }
-            </div>
-        ); 
-    }
+  renderOutput() {
+    const { output } = this.props;
 
-    renderVolumizer() {
-        return (
-            <div className="DrumMachine-Volumizer">
-                <div>
-                    <input type="range" />
-                    <img src="assets/levels.png" alt="levels" />
-                </div>
-                <div>
-                    <input type="range" />
-                    <img src="assets/levels.png" alt="levels" />
-                </div>
-            </div>
-        );
-    }
+    return <div className="drum-machine__output">{output}</div>;
+  }
 
-    renderButtons() {
-        const { onButtonClick } = this.props;
+  renderVolumizer() {
+    return (
+      <div className="drum-machine__volumizers">
+        <div className="drum-machine__volumizer">
+          <input type="range" />
+          <img src="assets/levels.png" alt="levels" />
+        </div>
+        <div className="drum-machine__volumizer">
+          <input type="range" />
+          <img src="assets/levels.png" alt="levels" />
+        </div>
+      </div>
+    );
+  }
 
-        const drumMachineButtons = DrumMachineButtonsJSON.map(button => (
-            <button
-                className='drum-pad'
-                key={ button.name }
-                onClick={ (e) => onButtonClick(e, button) }
-            >
-                <audio 
-                    className='clip'
-                    src={ button.audio }
-                >
-                </audio>
-                { button.name }
-            </button>
-        ));
+  renderPads() {
+    const { onButtonClick } = this.props;
 
-        return (
-            <div className='DrumMachine-Buttons'>
-                { drumMachineButtons }
-            </div>
-        );
-    }
+    const drumMachinePads = DrumMachineData.map((button) => (
+      <button
+        className="drum-machine__pad"
+        key={button.key}
+        onClick={(e) => onButtonClick(e, button)}
+      >
+        <audio className="clip" src={button.audio}></audio>
+        {button.key}
+      </button>
+    ));
 
-    render() {
-        return (
-            <div className="DrumMachine">
-                { this.renderRectButtons() }
-                { this.renderBigTuner() }
-                { this.renderSmallTuners() }
-                { this.renderOutput() }
-                { this.renderVolumizer() }
-                { this.renderButtons() }
-            </div>
-        );
-    }
+    return <div className="drum-machine__pads">{drumMachinePads}</div>;
+  }
+
+  render() {
+    return (
+      <div className="drum-machine">
+        {this.renderRectButtons()}
+        {this.renderBigTuner()}
+        {this.renderSmallTuners()}
+        {this.renderOutput()}
+        {this.renderVolumizer()}
+        {this.renderPads()}
+      </div>
+    );
+  }
 }
 
 export default DrumMachine;

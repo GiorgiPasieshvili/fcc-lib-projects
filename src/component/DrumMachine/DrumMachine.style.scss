@@ -1,183 +1,206 @@
-.DrumMachine {
-    width: 415px;
-    height: 415px;
-    padding: 20px;
+.drum-machine {
+  width: 415px;
+  height: 415px;
+  padding: 20px;
+  gap: 15px;
+
+  border-radius: 25px;
+  outline: 25px solid #323232;
+  background: #222;
+  box-shadow: 27px 27px 36px rgba(0, 0, 0, 0.25);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "rectbuttons rectbuttons"
+    "bigtuner smalltuners"
+    "bigtuner buttons"
+    "output buttons"
+    "volumizer buttons";
+
+  &__pads {
+    grid-area: buttons;
+
+    width: 270px;
+    height: 270px;
     gap: 15px;
-
-    border-radius: 25px;
-    outline: 25px solid #323232;
-    background: #222;
-    box-shadow: 27px 27px 36px rgba(0, 0, 0, 0.25);
-
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-    'rectbuttons rectbuttons'
-    'bigtuner smalltuners'
-    'bigtuner buttons'
-    'output buttons'
-    'volumizer buttons';
+    grid-template-columns: repeat(3, 1fr);
+  }
 
-    &-Buttons {
-        grid-area: buttons;
-        width: 270px;
-        height: 270px;
-        gap: 15px;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+  &__pad {
+    border-radius: 10px;
+    background: #4b4e6d;
+    text-transform: uppercase;
 
-        button {
-            border-radius: 10px;
-            background: #4B4E6D;
-            text-transform: uppercase;
+    &:nth-last-child(-n + 3) {
+      color: #222;
+      background: #84dcc6;
+    }
+  }
 
-            &:nth-last-child(-n+3) {
-                color: #222;
-                background: #84DCC6;
-            }
-        }
+  &__rect-buttons {
+    grid-area: rectbuttons;
+
+    height: 18px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__rect-button {
+    width: 75px;
+    height: 100%;
+    border-radius: 6px;
+    background: radial-gradient(
+      139.89% 139.89% at 50% 50%,
+      #ffffff 0%,
+      #d9d9d9 31.77%,
+      #ffffff 60.42%,
+      #d9d9d9 97.4%
+    );
+  }
+
+  &__small-tuners {
+    grid-area: smalltuners;
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__small-tuner {
+    width: 55px;
+    height: 55px;
+    background: #f5f5f5;
+    border-radius: 50%;
+    position: relative;
+    background: radial-gradient(
+      139.89% 139.89% at 50% 50%,
+      #ffffff 0%,
+      #d9d9d9 31.77%,
+      #ffffff 60.42%,
+      #d9d9d9 97.4%
+    );
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ad3911;
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
     }
 
-    &-RectButtons {
-        grid-area: rectbuttons;
-        height: 18px;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-
-        button {
-            width: 75px;
-            height: 100%;
-            border-radius: 6px;
-            background: radial-gradient(139.89% 139.89% at 50% 50%, #FFFFFF 0%, #D9D9D9 31.77%, #FFFFFF 60.42%, #D9D9D9 97.4%)
-        }  
+    &:first-child {
+      transform: rotate(45deg);
     }
 
-    &-Tuners {
-        display: flex;
-        justify-content: space-between;
-
-        span {
-            width: 55px;
-            height: 55px;
-            background: #f5f5f5;
-            border-radius: 50%;
-            position: relative;
-            background: radial-gradient(139.89% 139.89% at 50% 50%, #FFFFFF 0%, #D9D9D9 31.77%, #FFFFFF 60.42%, #D9D9D9 97.4%);
-            cursor: pointer;        
-        }
-
-        &_type_big {
-            grid-area: bigtuner;
-            span {
-                width: 90px;
-                height: 90px;
-            }
-        }
-
-        &_type_small {
-            grid-area: smalltuners;
-            span {
-                &::before {
-                    content: '';
-                    width: 8px;
-                    height: 8px;  
-                    border-radius: 50%;
-                    background: #AD3911;
-                    position: absolute;
-                    left: 10px;
-                    top: 50%;
-                    transform: translateY(-50%);
-                }
-
-                &:first-child{
-                    transform: rotate(45deg);
-                }
-
-                &:nth-child(2){
-                    transform: rotate(180deg);
-                }
-
-                &:nth-child(3){
-                    transform: rotate(135deg);
-                }
-            }
-        }
+    &:nth-child(2) {
+      transform: rotate(180deg);
     }
 
-    &-Output {
-        grid-area: output;
-        font-size: 12px;
-        width: 85px;
-        height: 25px;
-        border-radius: 4px;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #323232;
+    &:nth-child(3) {
+      transform: rotate(135deg);
     }
+  }
 
-    &-Volumizer {
-        grid-area: volumizer;
-        align-self: flex-end;
-        height: 160px;
-        gap: 10px;
-        display: flex;
-        align-items: center;
+  &__big-tuner {
+    grid-area: bigtuner;
 
-        div {
-            width: 35px;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
+    width: 90px;
+    height: 90px;
+    background: #f5f5f5;
+    border-radius: 50%;
+    position: relative;
+    background: radial-gradient(
+      139.89% 139.89% at 50% 50%,
+      #ffffff 0%,
+      #d9d9d9 31.77%,
+      #ffffff 60.42%,
+      #d9d9d9 97.4%
+    );
+    cursor: pointer;
+  }
 
-            input[type=range] {
-                position: absolute;
-                left: -70px;
-                z-index: 1;
-            }
+  &__output {
+    grid-area: output;
 
-            img {
-                height: 95%;
-                position: absolute;
-                left: 23px;
-            }
-        }
-    }
+    font-size: 12px;
+    width: 85px;
+    height: 25px;
+    border-radius: 4px;
 
-    input[type=range] {
-        box-sizing: content-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #323232;
+  }
+
+  &__volumizers {
+    grid-area: volumizer;
+
+    align-self: flex-end;
+    height: 160px;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__volumizer {
+    width: 35px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    input {
+      position: absolute;
+      left: -70px;
+      z-index: 1;
+
+      box-sizing: content-box;
+      -webkit-appearance: none;
+      width: 160px;
+      height: 12px;
+      border-radius: 9px;
+      outline: 3px solid #f5f5f5;
+      background: linear-gradient(270deg, #d14444 0.34%, #d1c344 100.12%);
+      transform: rotate(270deg);
+
+      &::-webkit-slider-thumb {
         -webkit-appearance: none;
-        width: 160px;
-        height: 12px;
-        border-radius: 9px;  
-        outline: 3px solid #f5f5f5;
-        background: linear-gradient(270deg, #D14444 0.34%, #D1C344 100.12%);
-        transform: rotate(270deg);
+        appearance: none;
+        width: 16px;
+        height: 20px;
+        background: url("../../../public/assets/slider-thumb.png") no-repeat
+          fixed center/cover;
+        cursor: pointer;
+        position: relative;
+        z-index: 100;
+        transform: rotate(90deg);
+      }
 
-        &::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 16px;
-            height: 20px;
-            background: url("../../../public/assets/slider-thumb.png") no-repeat fixed center/cover;
-            cursor: pointer;
-            position: relative;
-            z-index: 100;
-            transform: rotate(90deg);
-        }
-        
-        &::-moz-range-thumb {
-            width: 16px;
-            height: 20px;
-            background: url("../../../public/assets/slider-thumb.png") no-repeat fixed center/cover;
-            cursor: pointer;
-            position: relative;
-            z-index: 100;
-            transform: rotate(90deg);
-        }
+      &::-moz-range-thumb {
+        width: 16px;
+        height: 20px;
+        background: url("../../../public/assets/slider-thumb.png") no-repeat
+          fixed center/cover;
+        cursor: pointer;
+        position: relative;
+        z-index: 100;
+        transform: rotate(90deg);
+      }
     }
+
+    img {
+      height: 95%;
+      position: absolute;
+      left: 23px;
+    }
+  }
 }

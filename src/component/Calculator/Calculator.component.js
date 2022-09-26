@@ -1,64 +1,55 @@
-import { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import { PureComponent } from "react";
+import PropTypes from "prop-types";
 
-import CalculatorButtonsJSON from './CalculatorButtons';
-import './Calculator.style.scss';
+import CalculatorData from "./Calculator.data.json";
+import "./Calculator.style.scss";
 
 /** @namespace Component/Calculator/Component */
 export class Calculator extends PureComponent {
-    static propTypes = {
-        onButtonClick: PropTypes.func.isRequired,
-        currentTask: PropTypes.string.isRequired,
-        wholeTask: PropTypes.string.isRequired
-      }
+  static propTypes = {
+    onButtonClick: PropTypes.func.isRequired,
+    currentTask: PropTypes.string.isRequired,
+    wholeTask: PropTypes.string.isRequired,
+  };
 
-    renderButtons() {
-        const { onButtonClick } = this.props;
+  renderButtons() {
+    const { onButtonClick } = this.props;
 
-        const calculatorButtons = CalculatorButtonsJSON.map(button => (
-                <button
-                    id={ button.name }
-                    key={ button.name }
-                    onClick={ () => onButtonClick(button) }
-                >
-                    { button.value }
-                </button>
-            )
-        );
+    const calculatorButtons = CalculatorData.map((button) => (
+      <button
+        id={button.name}
+        key={button.name}
+        onClick={() => onButtonClick(button)}
+      >
+        {button.symbol}
+      </button>
+    ));
 
-        return (
-            <div className='Calculator-Buttons'>
-                { calculatorButtons }
-            </div>
-        );
-    }
+    return <div className="calculator__buttons">{calculatorButtons}</div>;
+  }
 
-    renderScreen() {
-        const { currentTask, wholeTask } = this.props;
+  renderScreen() {
+    const { currentTask, wholeTask } = this.props;
 
-        return (
-            <div className='Calculator-Screen'>
-                {/* Render Whole Task */}
-                <p className='Calculator-Screen_Whole'>
-                    { wholeTask }
-                </p>
+    return (
+      <div className="calculator__screen">
+        {/* Render Whole Task */}
+        <span>{wholeTask}</span>
 
-                {/* Render Current Chosen Operator or Number */}
-                <p className='Calculator-Screen_Current'>
-                    { currentTask }
-                </p>
-            </div>
-        );
-    }
+        {/* Render Current Chosen Operator or Number */}
+        <span>{currentTask}</span>
+      </div>
+    );
+  }
 
-    render() {
-        return (
-            <div className='Calculator'>
-                { this.renderScreen() }
-                { this.renderButtons() }
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="calculator">
+        {this.renderScreen()}
+        {this.renderButtons()}
+      </div>
+    );
+  }
 }
 
 export default Calculator;

@@ -1,1 +1,1 @@
-export { default } from './QuoteMachine.container';
+export { default } from "./QuoteMachine.container";

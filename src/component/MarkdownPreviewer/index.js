@@ -1,1 +1,1 @@
-export { default } from './MarkdownPreviewer.component';
+export { default } from "./MarkdownPreviewer.component";

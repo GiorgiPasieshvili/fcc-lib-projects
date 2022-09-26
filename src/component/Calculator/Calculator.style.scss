@@ -1,77 +1,109 @@
-.Calculator {
-    width: 380px;
-    height: 525px;
-    border-radius: 4px;
-    padding: 16px;
+.calculator {
+  width: 380px;
+  height: 525px;
+  border-radius: 4px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #222;
+  box-shadow: 7px 7px 16px rgba(0, 0, 0, 0.25);
+
+  &__screen {
+    height: 120px;
+
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    background: #222;
-    box-shadow: 7px 7px 16px rgba(0, 0, 0, 0.25);
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 4px;
 
-    &-Screen {
-        height: 120px;
+    padding: 15px;
+    background: #272727;
+    text-align: right;
+    overflow: hidden;
 
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: flex-end;
-        gap: 4px;
-
-        padding: 15px;
-        background: #272727;
-        text-align: right;
-        overflow: hidden;
-
-        &_Whole {
-            font-size: 23px;
-        }
-
-        &_Current {
-            font-size: 39px;
-        }
+    span:first-child {
+      font-size: 23px;
     }
 
-    &-Buttons {
-        flex-grow: 1;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-areas:
-        'ac ac divide multiple'
-        'seven eight nine minus'
-        'four five six plus'
-        'one two three match'
-        'zero zero point match';
-        gap: 3px;
-
-        button {
-            font-size: 26px;
-            background: #4B4E6D;
-
-            &:hover {
-                outline: 1px solid #f5f5f5;
-            }
-        }
-
-        #clear  {  grid-area: ac;  }
-        #seven {  grid-area: seven;  }
-        #eight {  grid-area: eight;  }
-        #nine {  grid-area: nine;  }
-        #four {  grid-area: four;  }
-        #five {  grid-area: five;  }
-        #six {  grid-area: six;  }
-        #one {  grid-area: one;  }
-        #two {  grid-area: two;  }
-        #three {  grid-area: three;  }
-        #zero {  grid-area: zero;  }
-        #point {  grid-area: point;  }
-        #add {  grid-area: plus;  }
-        #subtract {  grid-area: minus;  }
-        #multiply {  grid-area: multiple;  }
-        #divide {  grid-area: divide;  }
-        #match {  
-            background: #84DCC6;
-            grid-area: match;  
-        }
+    span:last-child {
+      font-size: 39px;
     }
+  }
+
+  &__buttons {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "ac ac divide multiple"
+      "seven eight nine minus"
+      "four five six plus"
+      "one two three match"
+      "zero zero point match";
+    gap: 3px;
+
+    button {
+      font-size: 26px;
+      background: #4b4e6d;
+
+      &:hover {
+        outline: 1px solid #f5f5f5;
+      }
+    }
+
+    #clear {
+      grid-area: ac;
+    }
+    #seven {
+      grid-area: seven;
+    }
+    #eight {
+      grid-area: eight;
+    }
+    #nine {
+      grid-area: nine;
+    }
+    #four {
+      grid-area: four;
+    }
+    #five {
+      grid-area: five;
+    }
+    #six {
+      grid-area: six;
+    }
+    #one {
+      grid-area: one;
+    }
+    #two {
+      grid-area: two;
+    }
+    #three {
+      grid-area: three;
+    }
+    #zero {
+      grid-area: zero;
+    }
+    #point {
+      grid-area: point;
+    }
+    #add {
+      grid-area: plus;
+    }
+    #subtract {
+      grid-area: minus;
+    }
+    #multiply {
+      grid-area: multiple;
+    }
+    #divide {
+      grid-area: divide;
+    }
+    #match {
+      background: #84dcc6;
+      grid-area: match;
+    }
+  }
 }

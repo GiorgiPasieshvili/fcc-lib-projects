@@ -1,36 +1,36 @@
-.MarkdownPreviewer {
-    display: flex;
-    align-items: center;
-    gap: 60px;
+.markdown-previewer {
+  display: flex;
+  align-items: center;
+  gap: 60px;
 
-    &-Editor {
-        font-size: 15px;
+  &__editor {
+    font-size: 15px;
 
-        width: 600px;
-        height: 360px;
+    width: 600px;
+    height: 360px;
 
-        background: #222222;
-        box-shadow: 7px 7px 16px rgba(0, 0, 0, 0.25);
-        border: 20px solid #222;
+    background: #222222;
+    box-shadow: 7px 7px 16px rgba(0, 0, 0, 0.25);
+    border: 20px solid #222;
+  }
+
+  &__output {
+    font-size: 20px;
+    width: 800px;
+    height: 550px;
+
+    background: #222222;
+    box-shadow: 7px 7px 16px rgba(0, 0, 0, 0.25);
+    border: 18px solid #222;
+    overflow-y: scroll;
+    word-break: break-word;
+
+    * {
+      all: revert;
     }
 
-    &-Output {
-        font-size: 20px;
-        width: 800px;
-        height: 550px;
-
-        background: #222222;
-        box-shadow: 7px 7px 16px rgba(0, 0, 0, 0.25);
-        border: 18px solid #222;
-        overflow-y: scroll;
-        word-break: break-word;
-
-        * {
-            all: revert;
-        }
-
-        img {
-            max-width: 500px;
-        }
+    img {
+      max-width: 500px;
     }
+  }
 }

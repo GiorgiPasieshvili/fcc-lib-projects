@@ -4,17 +4,19 @@
 @use "functions" as fn;
 
 body {
-  font-family: "Roboto Mono", sans-serif, monospace;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: c.$light-color;
+
+  height: 100vh;
   background: linear-gradient(
     315deg,
     c.$bluish-color 0%,
     c.$greenish-color 100%
   );
+
+  font-family: "Roboto Mono", sans-serif, monospace;
+  color: c.$light-color;
 }
 
 button {
@@ -35,10 +37,10 @@ a {
 
 /* ScrollBar Styles */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: fn.rem(5);
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 6px;
+  border-radius: fn.rem(6);
   background: c.$light-color;
 }
