@@ -3,6 +3,7 @@
 @use "style/mixins" as mix;
 
 .markdown-previewer {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,6 +38,7 @@
 
   &__output {
     width: min(fn.rem(800), 90%);
+    min-height: fn.rem(300);
 
     @include mix.mobile {
       max-height: fn.rem(300);
